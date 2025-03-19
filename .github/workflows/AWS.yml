@@ -1,0 +1,25 @@
+name: Test GLIBC and AWS CLI Installation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-glibc-awscli:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20-bookworm  # Cambiar a debian:bookworm si no necesitas Node.js
+    steps:
+      - name: Check GLIBC Version
+        run: ldd --version
+
+      - name: Install AWS CLI
+        run: |
+          apt-get update
+          apt-get install -y awscli
+
+      - name: Check AWS CLI Version
+        run: aws --version
+
+      - name: Check Node.js Version (Optional)
+        run: node --version
+
