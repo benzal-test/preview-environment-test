@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SECRET_VALUE: "${{ secrets.MY_SECRET }}"
-      OTHER_SECRET: "${{ secrets.OTHER_SECRET }}"
+      OTHER_SECRET: "${{ vars.OTHER_SECRET }}"
     steps:
       - name: Print Secrets in Run
         run: |
